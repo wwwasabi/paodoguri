@@ -1,0 +1,65 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fffceb; /* creme */
+    color: #333; /* cor do texto padrão */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #ff99cc; /* rosa pastel */
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffe6f2; /* rosa pastel */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+#outros {
+    display: none;
+}
+
+input[type="submit"] {
+    background-color: #ff99cc; /* rosa pastel */
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff66b2; /* rosa pastel mais escuro */
+}
+
+/* Estilo para a página de resultado */
+
+p {
+    background-color: #ffe6f2; /* rosa pastel */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff99cc; /* rosa pastel */
+    text-align: center; /* Centralizar o texto */
+}
+
+/* Restante do seu CSS... */

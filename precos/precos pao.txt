@@ -1,0 +1,38 @@
+massa
+3 - ovos - 1.80
+250 - açucar - 1.00
+250 - leite - 1.50
+2L - agua - 0.5
+60 - sal - 0.1
+250 - oleo - 2.10
+20 - fermento - 0.7
+3,5 - baunilia - 0.08
+4kg - farinha - 18
+- total - 24,78 ~ 25
+- unidade pao - 1,90 ~ 2
+pao de pizza
+- calabresa - 
+- queijo - 
+- requeijão - 
+- 
+
+
+pao de calabresa
+- calabresa - 0,8
+
+
+
+('Pão de Calabresa', 25),
+('Pão de Frango', 25),
+('Pão de Queijo Manteiga', 25),
+('Pão de Marguerita', 25),
+('Pão de Calabresa com Bacon', 25),
+('Pão de Chocolate', 25),
+('Pão de Carne de Sol na Nata', 35),
+('Outros', 0);
+
+
+pao de calabresa com bacon
+- calabresa - 0,8
+
+
