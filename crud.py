@@ -6,8 +6,7 @@ class Registro:
             host = 'localhost',
             user = 'root',
             password = '13101990',
-            database = 'paodoguri',
-            connection_timeout=10
+            database = 'paodoguri'
         )
 
         self.cursor = self.conexao.cursor()
