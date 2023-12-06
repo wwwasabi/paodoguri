@@ -27,23 +27,21 @@ def registrar_pao():
     
     if request.method == 'POST':
         sabor = request.form['sabor']
-        id_sabor = c.obter_id_do_sabor(mapeamento_sabores_id, sabor)
         quantidade = request.form['quantidade']
+        id_sabor = c.obter_id_do_sabor(mapeamento_sabores_id, sabor)
+        id_venda = c.venda(data)
 
+        
         if sabor == 'Outros':
             descricao = request.form['descricao']
             valor = request.form['valor']
-            resultado = f"Registrando {quantidade} unidades de {sabor} - {descricao} por R${valor} cada."
-            conteudo = (f'{data}', valor, c.valor_liquido(id_sabor), quantidade,f'{descricao}', id_sabor, 1)
-            r.cadastrar_item(conteudo)
+            conteudo = (f'{data}', valor, c.valor_liquido(id_sabor, quantidade), quantidade,f'{descricao}', id_sabor, id_venda)
+            r.cadastrar_item(conteudo)            
         else:
-            resultado = f"Registrando {quantidade} unidades de {sabor}."
-            
             #Registrando a venda
-            conteudo = (f'{data}', c.valor_bruto(id_sabor), c.valor_liquido(id_sabor), quantidade,'', id_sabor, 1)
+            conteudo = (f'{data}', c.valor_bruto(id_sabor, quantidade), c.valor_liquido(id_sabor, quantidade), quantidade,'', id_sabor, id_venda)
             r.cadastrar_item(conteudo)
             
-        return render_template('resultado.html', resultado=resultado)
     return render_template('registrar_pao.html', sabores=sabores)
 
 if __name__ == '__main__':

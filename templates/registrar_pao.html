@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,40 +12,89 @@
 <body>
     <h1>Pão do Guri</h1>
     <form method="post" action="/">
-        <label for="sabor">Escolha o sabor:</label>
-        <select name="sabor" id="sabor">
-            {% for sabor in sabores %}
+        <div id="div_item">
+            <label for="sabor">Escolha o sabor:</label>
+            <select name="sabor" id="sabor">
+                {% for sabor in sabores %}
                 <option value="{{ sabor }}">{{ sabor }}</option>
-            {% endfor %}
-        </select>
+                {% endfor %}
+            </select>
 
-        <br>
-
-        <label for="quantidade">Quantidade:</label>
-        <input type="text" name="quantidade" id="quantidade" required>
-
-        <br>
-
-        <div id="outros" style="display:none;">
-            <label for="descricao">Descrição:</label>
-            <input type="text" name="descricao" id="descricao">
-            
             <br>
 
-            <label for="valor">Valor:</label>
-            <input type="text" name="valor" id="valor">
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" name="quantidade" id="quantidade" required>
+
+            <br>
+
+            <div id="outros" style="display:none;">
+                <label for="descricao">Descrição:</label>
+                <input type="text" name="descricao" id="descricao">
+
+                <br>
+
+                <label for="valor">Valor:</label>
+                <input type="text" name="valor" id="valor">
+            </div>
+
+            <br>
         </div>
-
-        <br>
-
+        <input type="button" value="add" , onclick="add_item_table()">
         <input type="submit" value="Registrar">
     </form>
 
     <script>
-        document.getElementById('sabor').addEventListener('change', function() {
+        document.getElementById('sabor').addEventListener('change', function () {
             var outrosDiv = document.getElementById('outros');
             outrosDiv.style.display = (this.value === 'Outros') ? 'block' : 'none';
         });
+
+        function add_item_table() {
+            const tr = document.createElement('tr');
+            const values = getInputsValues('div_item');
+            if(values.sabor != 'Outros'){
+                delete values.valor
+                delete values.descricao
+            }
+            else if(values.valor == ''){
+                alert('Valor não pode ser vazio!')
+                return
+            }
+            for(const [key, value] of Object.entries(values)){
+                
+            }
+            console.log(values)
+        }
+
+
+        function getInputsValues(elementId) {
+            try {
+                const inputs = document.querySelector('#' + elementId).querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"], select');
+                const values = {};
+
+                inputs.forEach((input) => {
+                    const name = input.name;
+                    const value = input.value;
+                    if (["true", "false"].includes(value)) {
+                        values[name] = value == "true" ? true : false;
+                    }
+                    else if (input.type == 'number') {
+                        values[name] = Number(value);
+                    }
+                    else {
+                        values[name] = value;
+                    }
+                });
+                return values;
+            }
+            catch (err) {
+                console.log(err);
+                alert(`Falha ao obter valores do elemento ${elementId}.`);
+                return {};
+            }
+        }
+
     </script>
 </body>
+
 </html>
